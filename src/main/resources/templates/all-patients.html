@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(90deg, rgb(71, 77, 176), rgb(190, 55, 197));
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      background-color: rgb(45, 26, 68);
+    }
+
+    nav li a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 3rem;
+      transition: background-color 0.5s ease-out;
+    }
+
+    nav li a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .search {
+      margin: 1rem;
+    }
+
+    .search form {
+      padding: 1rem;
+      width: 40rem;
+      margin: auto;
+      display: flex;
+      justify-content: space-evenly;
+      box-shadow: 1px 2px 4px black;
+      background-color: white;
+    }
+
+    .search input {
+      margin-left: 1rem;
+    }
+
+    .element_names {
+      width: 70rem;
+      margin: 0 auto;
+    }
+
+    .element_names tr {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .element_names tr {
+      background-color: white;
+    }
+
+    #first {
+      background-color: rgb(45, 26, 68);
+      color: white;
+    }
+
+    .element_names tr:nth-of-type(2n) {
+      background-color: rgb(220, 220, 220);
+    }
+
+    .element_names th,
+    .element_names td {
+      /* display: block; */
+      text-decoration: none;
+      width: 15rem;
+      padding: 0.5rem 3rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      width: 5rem;
+      text-align: center;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .btn-blue {
+      background-color: rgb(53, 98, 175);
+    }
+
+    .btn-blue:hover {
+      background-color: rgb(44, 92, 110);
+    }
+
+    .btn-red {
+      background-color: rgb(199, 53, 53);
+    }
+    .btn-red:hover {
+      background-color: rgb(187, 76, 76);
+    }
+  </style>
+  <title>Arnur project</title>
+</head>
+<body>
+<header>
+  <nav>
+    <ul>
+      <li><a href="/patients">All patients</a></li>
+      <li><a href="/addNewPatient">Add new patient</a></li>
+      <li><a href="/doctors">All doctors</a></li>
+      <li><a href="/addNewDoctor">Add new doctor</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <table class="element_names">
+    <tr id = "first">
+      <th>IIN</th>
+      <th>Firstname</th>
+      <th>Surname</th>
+      <th>Operations</th>
+    </tr>
+    <tr th:each="patient : ${allPts}">
+      <td th:text="${patient.iin}" />
+      <td th:text="${patient.name}" />
+      <td th:text="${patient.surname}" />
+      <td>
+        <a
+                th:href="'/updatePatient/' + ${patient.id}"
+                class="btn btn-blue"
+                role="button"
+        >Edit</a>
+      </td>
+    </tr>
+  </table>
+</main>
+</body>
+</html>

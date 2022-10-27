@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(90deg, rgb(71, 77, 176), rgb(190, 55, 197));
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(45, 26, 68);
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 3rem;
+            transition: background-color 0.5s ease-out;
+        }
+
+        nav li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        form {
+            position: relative;
+            width: 20rem;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 1px 2px 4px black;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            width: 10rem;
+        }
+
+        .last {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: red;
+        }
+
+        .last button {
+            padding: 0.5rem 0.5rem;
+            width: 5rem;
+            background-color: rgb(45, 26, 68);
+            color: white;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 2px 2px 5px black;
+            cursor: pointer;
+        }
+
+        .last button:hover {
+            background-color: rgb(93, 71, 122);
+            color: white;
+        }
+    </style>
+    <title>Arnur project</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/patients">All patients</a></li>
+            <li><a href="/addNewPatient">Add new patient</a></li>
+            <li><a href="/doctors">All doctors</a></li>
+            <li><a href="/addNewDoctor">Add new doctor</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Update</h1>
+    <form th:action="@{/savePatient}" th:object="${patient}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{name}"
+                    id="name"
+                    placeholder="Enter name"
+                    required
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Surname</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{surname}"
+                    id="surname"
+                    placeholder="Enter surname"
+                    required
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="middlename">Middle-name</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{middlename}"
+                    id="middlename"
+                    placeholder="Enter middle-name"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="date_of_birth">Birth date</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{date_of_birth}"
+                    id="date_of_birth"
+                    placeholder="Enter birth date"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="iin">IIN</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{iin}"
+                    id="iin"
+                    placeholder="Enter iin"
+                    required
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="blood_group">Blood group</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{blood_group}"
+                    id="blood_group"
+                    placeholder="Enter blood group"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="contact_number">Contact number</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{contact_number}"
+                    id="contact_number"
+                    placeholder="Enter contact number"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="emergency_contact_number">Emergency contact number</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{emergency_contact_number}"
+                    id="emergency_contact_number"
+                    placeholder="Enter emergency contact number"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+                    type="email"
+                    class="form-control"
+                    th:field="*{email}"
+                    id="email"
+                    placeholder="Enter email"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{address}"
+                    id="address"
+                    placeholder="Enter address"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="marital_status">Marital status</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{marital_status}"
+                    id="marital_status"
+                    placeholder="Enter marital status"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="registration_date">Registration date</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{registration_date}"
+                    id="registration_date"
+                    placeholder="Enter registration date"
+            />
+        </div>
+
+        <div class="last">
+            <td th:text="${exception}" class="hidden_one" style="color: red"></td>
+            <button type="submit">Submit</button>
+            <input type="hidden" class="form-control" th:field="*{id}"  id="id"  placeholder="" />
+        </div>
+    </form>
+</main>
+</body>
+</html>
