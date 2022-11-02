@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <!-- <link rel="stylesheet" href="/styles/message.css" /> -->
     <style>
         body {
             margin: 0;
@@ -98,8 +99,8 @@
     </nav>
 </header>
 <main>
-    <h1>Update</h1>
-    <form th:action="@{/savePatient}" th:object="${patient}" method="post">
+    <h1>Add doctor</h1>
+    <form th:action="@{/persistDoctor}" th:object="${doctor}" method="post">
         <div class="form-group">
             <label for="name">Name</label>
             <input
@@ -149,23 +150,12 @@
         <div class="form-group">
             <label for="iin">IIN</label>
             <input
-                    type="number"
+                    type="text"
                     class="form-control"
                     th:field="*{iin}"
                     id="iin"
                     placeholder="Enter iin"
                     required
-            />
-        </div>
-
-        <div class="form-group">
-            <label for="blood_group">Blood group</label>
-            <input
-                    type="number"
-                    class="form-control"
-                    th:field="*{blood_group}"
-                    id="blood_group"
-                    placeholder="Enter blood group"
             />
         </div>
 
@@ -181,24 +171,90 @@
         </div>
 
         <div class="form-group">
-            <label for="emergency_contact_number">Emergency contact number</label>
+            <label for="department_id">Department id</label>
             <input
                     type="number"
                     class="form-control"
-                    th:field="*{emergency_contact_number}"
-                    id="emergency_contact_number"
-                    placeholder="Enter emergency contact number"
+                    th:field="*{department_id}"
+                    id="department_id"
+                    placeholder="Enter department id"
             />
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
+            <label for="specialization_details_id">Specialization details id</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{specialization_details_id}"
+                    id="specialization_details_id"
+                    placeholder="Enter specialization details id"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Experience</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{experience}"
+                    id="experience"
+                    placeholder="Enter experience"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
             <input
                     type="email"
                     class="form-control"
-                    th:field="*{email}"
-                    id="email"
-                    placeholder="Enter email"
+                    th:field="*{category}"
+                    id="category"
+                    placeholder="Enter category"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{price}"
+                    id="price"
+                    placeholder="Enter price"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="schedule_details">Schedule details</label>
+            <input
+                    type="email"
+                    class="form-control"
+                    th:field="*{schedule_details}"
+                    id="schedule_details"
+                    placeholder="Enter schedule details"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input
+                    type="number"
+                    class="form-control"
+                    th:field="*{rating}"
+                    id="rating"
+                    placeholder="Enter rating"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="degree">Degree</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    th:field="*{degree}"
+                    id="degree"
+                    placeholder="Enter degree"
             />
         </div>
 
@@ -213,32 +269,10 @@
             />
         </div>
 
-        <div class="form-group">
-            <label for="marital_status">Marital status</label>
-            <input
-                    type="text"
-                    class="form-control"
-                    th:field="*{marital_status}"
-                    id="marital_status"
-                    placeholder="Enter marital status"
-            />
-        </div>
-
-        <div class="form-group">
-            <label for="registration_date">Registration date</label>
-            <input
-                    type="text"
-                    class="form-control"
-                    th:field="*{registration_date}"
-                    id="registration_date"
-                    placeholder="Enter registration date"
-            />
-        </div>
-
         <div class="last">
             <td th:text="${exception}" class="hidden_one" style="color: red"></td>
-            <button type="submit">Submit</button>
             <input type="hidden" class="form-control" th:field="*{id}"  id="id"  placeholder="" />
+            <button type="submit">Submit</button>
         </div>
     </form>
 </main>

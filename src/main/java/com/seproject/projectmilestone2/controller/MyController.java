@@ -21,7 +21,12 @@ public class MyController {
 
     @Autowired
     private DoctorService doctorService;
-    
+
+    @RequestMapping("/")
+    public String homePage(Model model) {
+
+        return "home";
+    }
     @RequestMapping("/patients")
     public String showAllPatients(Model model) {
 

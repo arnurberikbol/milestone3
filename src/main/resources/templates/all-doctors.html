@@ -132,13 +132,13 @@
       <th>Surname</th>
       <th>Operations</th>
     </tr>
-    <tr th:each="patient : ${allPts}">
-      <td th:text="${patient.iin}" />
-      <td th:text="${patient.name}" />
-      <td th:text="${patient.surname}" />
+    <tr th:each="doctor : ${allDrs}">
+      <td th:text="${doctor.iin}" />
+      <td th:text="${doctor.name}" />
+      <td th:text="${doctor.surname}" />
       <td>
         <a
-                th:href="'/updatePatient/' + ${patient.id}"
+                th:href="'/updateDoctor/' + ${doctor.id}"
                 class="btn btn-blue"
                 role="button"
         >Edit</a>
