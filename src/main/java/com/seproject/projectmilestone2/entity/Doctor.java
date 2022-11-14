@@ -18,7 +18,7 @@ public class Doctor {
     private String date_of_birth;
 
     @Column(name = "iin")
-    private int iin;
+    private String iin;
 
     @Column(name = "name")
     private String name;
@@ -90,11 +90,11 @@ public class Doctor {
         return surname;
     }
 
-    public int getIin() {
+    public String getIin() {
         return iin;
     }
 
-    public void setIin(int iin) {
+    public void setIin(String iin) {
         this.iin = iin;
     }
 

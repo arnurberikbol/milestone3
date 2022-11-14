@@ -7,7 +7,7 @@ public class PatientDto {
 
     private String date_of_birth;
 
-    private int iin;
+    private String iin;
 
     private String name;
 
@@ -45,11 +45,11 @@ public class PatientDto {
         this.date_of_birth = date_of_birth;
     }
 
-    public int getIin() {
+    public String getIin() {
         return iin;
     }
 
-    public void setIin(int iin) {
+    public void setIin(String iin) {
         this.iin = iin;
     }
 

@@ -62,7 +62,7 @@ public class MyController {
         boolean noException = patientService.persistPatient(patientDto);
 
         if (!noException) {
-            String exception = "Patient already exists";
+            String exception = "Patient with this IIN already exists in the database";
             model.addAttribute("exception", exception);
             return "add-patient";
         }
@@ -102,7 +102,7 @@ public class MyController {
         boolean noException = doctorService.saveDoctor(doctorDto);
 
         if (!noException) {
-            String exception = "Doctor already exists";
+            String exception = "Doctor with this IIN already exists in the database";
             model.addAttribute("exception", exception);
             return "add-doctor";
         }

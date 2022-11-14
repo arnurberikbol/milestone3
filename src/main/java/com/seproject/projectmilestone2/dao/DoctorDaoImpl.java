@@ -25,6 +25,11 @@ public class DoctorDaoImpl implements DoctorDao {
     @Override
     @Transactional
     public void saveDoctor(Doctor doctor) {
+        System.out.println("-----------------------------");
+        System.out.println("-----------------------------");
+        System.out.println(doctor.getPhoto());
+        System.out.println("-----------------------------");
+        System.out.println("-----------------------------");
         entityManager.merge(doctor);
     }
 

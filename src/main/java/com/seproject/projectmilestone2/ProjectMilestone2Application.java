@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @SpringBootApplication
 public class ProjectMilestone2Application {
-
     public static void main(String[] args) {
         SpringApplication.run(ProjectMilestone2Application.class, args);
     }

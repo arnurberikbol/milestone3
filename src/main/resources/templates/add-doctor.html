@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8" />
     <!-- <link rel="stylesheet" href="/styles/message.css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <style>
         body {
             margin: 0;
-            background: linear-gradient(90deg, rgb(71, 77, 176), rgb(190, 55, 197));
+            background: #303841;
         }
 
         ul {
@@ -40,6 +42,12 @@
             color: white;
         }
 
+        h3 {
+            text-align: center;
+            color: black;
+            margin-bottom: 20px;
+        }
+
         form {
             position: relative;
             width: 20rem;
@@ -48,6 +56,7 @@
             box-shadow: 1px 2px 4px black;
             padding: 1rem 2rem;
             border-radius: 6px;
+            margin-top: 50px
         }
 
         .form-group {
@@ -69,38 +78,23 @@
             color: red;
         }
 
-        .last button {
-            padding: 0.5rem 0.5rem;
-            width: 5rem;
-            background-color: rgb(45, 26, 68);
-            color: white;
-            border: none;
-            border-radius: 3px;
-            box-shadow: 2px 2px 5px black;
-            cursor: pointer;
-        }
-
-        .last button:hover {
-            background-color: rgb(93, 71, 122);
-            color: white;
-        }
     </style>
     <title>Milestone project</title>
 </head>
 <body>
-<header>
-    <nav>
-        <ul>
-            <li><a href="/patients">All patients</a></li>
-            <li><a href="/addNewPatient">Add new patient</a></li>
-            <li><a href="/doctors">All doctors</a></li>
-            <li><a href="/addNewDoctor">Add new doctor</a></li>
-        </ul>
-    </nav>
-</header>
+<div>
+    <h1>Hospital Control Page</h1>
+</div>
+<div class="btn-group" style= "width:100%">
+    <a href="/patients" class="btn btn-outline-info btn-lg active" role="button" aria-pressed="true">All patients</a>
+    <a href="/addNewPatient" class="btn btn-outline-info btn-lg active" role="button" aria-pressed="true">Add new patient</a>
+    <a href="/doctors" class="btn btn-outline-info btn-lg active" role="button" aria-pressed="true">All doctors</a>
+    <a href="/addNewDoctor" class="btn btn-lg btn-outline-info active" role="button" aria-pressed="true">Add new doctor</a>
+
+</div>
 <main>
-    <h1>Add doctor</h1>
-    <form th:action="@{/persistDoctor}" th:object="${doctor}" method="post">
+    <form th:action="@{/saveDoctor}" th:object="${doctor}" method="post" style="width: 40%">
+        <h3>Doctor's new profile</h3>
         <div class="form-group">
             <label for="name">Name</label>
             <input
@@ -139,7 +133,7 @@
         <div class="form-group">
             <label for="date_of_birth">Birth date</label>
             <input
-                    type="text"
+                    type="date"
                     class="form-control"
                     th:field="*{date_of_birth}"
                     id="date_of_birth"
@@ -150,11 +144,11 @@
         <div class="form-group">
             <label for="iin">IIN</label>
             <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     th:field="*{iin}"
                     id="iin"
-                    placeholder="Enter iin"
+                    placeholder="Enter IIN"
                     required
             />
         </div>
@@ -162,11 +156,12 @@
         <div class="form-group">
             <label for="contact_number">Contact number</label>
             <input
-                    type="number"
+                    type="tel"
                     class="form-control"
                     th:field="*{contact_number}"
                     id="contact_number"
                     placeholder="Enter contact number"
+                    required
             />
         </div>
 
@@ -269,10 +264,22 @@
             />
         </div>
 
+        <div class="form-group">
+            <label>Photo: </label>
+            <input
+                    type="file"
+                    class="form-control"
+                    accept="image/png, image/jpeg"
+                    th:field="*{photo}"
+                    id="photo"
+                    placeholder="Upload Photo"
+            />
+        </div>
+
         <div class="last">
             <td th:text="${exception}" class="hidden_one" style="color: red"></td>
             <input type="hidden" class="form-control" th:field="*{id}"  id="id"  placeholder="" />
-            <button type="submit">Submit</button>
+            <input class="btn btn-primary" type="submit" value="Submit">
         </div>
     </form>
 </main>
