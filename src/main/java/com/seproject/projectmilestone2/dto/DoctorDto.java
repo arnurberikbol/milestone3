@@ -1,5 +1,7 @@
 package com.seproject.projectmilestone2.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.time.LocalDate;
 
 public class DoctorDto {
@@ -23,7 +25,7 @@ public class DoctorDto {
 
     private int experience;
 
-    private String photo;
+    private MultipartFile photo;
 
     private String category;
 
@@ -117,11 +119,11 @@ public class DoctorDto {
         this.experience = experience;
     }
 
-    public String getPhoto() {
+    public MultipartFile getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(MultipartFile photo) {
         this.photo = photo;
     }
 

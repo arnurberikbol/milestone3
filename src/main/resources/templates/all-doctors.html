@@ -113,7 +113,6 @@
   <table class="element_names table">
     <thead class="thead-dark">
     <tr>
-      <th scope="col">photo</th>
       <th scope="col">IIN</th>
       <th scope="col">Firstname</th>
       <th scope="col">Surname</th>
@@ -123,7 +122,6 @@
     </thead>
 
     <tr th:each="doctor : ${allDrs}">
-      <td img th:src="${doctor.photo}" />
       <td th:text="${doctor.iin}" />
       <td th:text="${doctor.name}" />
       <td th:text="${doctor.surname}" />

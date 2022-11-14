@@ -93,7 +93,7 @@
 
 </div>
 <main>
-    <form th:action="@{/saveDoctor}" th:object="${doctor}" method="post" style="width: 40%">
+    <form th:action="@{/saveDoctor}" th:object="${doctor}" method="post" style="width: 40%" enctype="multipart/form-data">
         <h3>Doctor's new profile</h3>
         <div class="form-group">
             <label for="name">Name</label>

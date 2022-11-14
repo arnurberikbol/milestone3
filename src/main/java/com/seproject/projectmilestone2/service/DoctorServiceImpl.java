@@ -40,8 +40,8 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public boolean persistDoctor(DoctorDto doctorDto) {
-        Doctor doctor = doctorConverter.dtoToEntity(doctorDto);
         try {
+            Doctor doctor = doctorConverter.dtoToEntity(doctorDto);
             doctorDao.persistDoctor(doctor);
             return true;
         } catch (Exception e) {

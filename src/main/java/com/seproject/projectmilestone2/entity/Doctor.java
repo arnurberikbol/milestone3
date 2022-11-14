@@ -41,8 +41,15 @@ public class Doctor {
     @Column(name = "experience")
     private int experience;
 
+    @Lob
     @Column(name = "photo")
-    private String photo;
+    private byte[] photo;
+
+    @Column(name = "photo_name")
+    private String photo_name;
+
+    @Column(name = "photo_type")
+    private String photo_type;
 
     @Column(name = "category")
     private String category;
@@ -66,6 +73,8 @@ public class Doctor {
         return id;
     }
 
+    public Doctor() {
+    }
     public void setId(int id) {
         this.id = id;
     }
@@ -142,11 +151,11 @@ public class Doctor {
         this.experience = experience;
     }
 
-    public String getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(String photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
 
@@ -196,6 +205,22 @@ public class Doctor {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhoto_name() {
+        return photo_name;
+    }
+
+    public void setPhoto_name(String photo_name) {
+        this.photo_name = photo_name;
+    }
+
+    public String getPhoto_type() {
+        return photo_type;
+    }
+
+    public void setPhoto_type(String photo_type) {
+        this.photo_type = photo_type;
     }
 
     @Override

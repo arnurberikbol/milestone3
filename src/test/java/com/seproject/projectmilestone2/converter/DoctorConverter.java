@@ -1,14 +1,15 @@
 package com.seproject.projectmilestone2.converter;
 
-
 import com.seproject.projectmilestone2.dto.DoctorDto;
 import com.seproject.projectmilestone2.entity.Doctor;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.mock.web.MockMultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,11 +31,7 @@ public class DoctorConverter {
         doctorDto.setDegree(doctor.getDegree());
         doctorDto.setDepartment_id(doctor.getDepartment_id());
         doctorDto.setExperience(doctor.getExperience());
-
-        MultipartFile result  = null;
-        if (doctor.getPhoto_name() != null)
-            result= new MockMultipartFile(doctor.getPhoto_name(), doctor.getPhoto_name(), doctor.getPhoto_type(), doctor.getPhoto());
-
+        MultipartFile result = new MockMultipartFile(doctor.getPhoto_name(), doctor.getPhoto_name(), doctor.getPhoto_type(), doctor.getPhoto());
         doctorDto.setPhoto(result);
         doctorDto.setPrice(doctor.getPrice());
         doctorDto.setRating(doctor.getRating());
@@ -85,4 +82,3 @@ public class DoctorConverter {
     }
 
 }
-
