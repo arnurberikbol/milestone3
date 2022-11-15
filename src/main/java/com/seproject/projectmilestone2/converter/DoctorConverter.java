@@ -32,8 +32,9 @@ public class DoctorConverter {
         doctorDto.setExperience(doctor.getExperience());
 
         MultipartFile result  = null;
-        if (doctor.getPhoto_name() != null)
-            result= new MockMultipartFile(doctor.getPhoto_name(), doctor.getPhoto_name(), doctor.getPhoto_type(), doctor.getPhoto());
+        try {
+            result = new MockMultipartFile(doctor.getPhoto_name(), doctor.getPhoto_name(), doctor.getPhoto_type(), doctor.getPhoto());
+        } catch (Exception e){}
 
         doctorDto.setPhoto(result);
         doctorDto.setPrice(doctor.getPrice());
@@ -63,9 +64,11 @@ public class DoctorConverter {
         doctor.setDegree(doctorDto.getDegree());
         doctor.setDepartment_id(doctorDto.getDepartment_id());
         doctor.setExperience(doctorDto.getExperience());
-        doctor.setPhoto(doctorDto.getPhoto().getBytes());
-        doctor.setPhoto_name(StringUtils.cleanPath(doctorDto.getPhoto().getOriginalFilename()));
-        doctor.setPhoto_type(doctorDto.getPhoto().getContentType());
+        try {
+            doctor.setPhoto(doctorDto.getPhoto().getBytes());
+            doctor.setPhoto_name(StringUtils.cleanPath(doctorDto.getPhoto().getOriginalFilename()));
+            doctor.setPhoto_type(doctorDto.getPhoto().getContentType());
+        } catch (Exception e) {}
         doctor.setPrice(doctorDto.getPrice());
         doctor.setRating(doctorDto.getRating());
         doctor.setSchedule_details(doctorDto.getSchedule_details());
