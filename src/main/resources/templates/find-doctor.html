@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+
+
+
+
+    #myInput {
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+
+  #myTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 18px; /* Increase font-size */
+  }
+
+  #myTable th, #myTable td {
+    text-align: left; /* Left-align text */
+    padding: 12px; /* Add padding */
+  }
+
+  #myTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+  }
+
+  #myTable tr.header, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #f1f1f1;
+
+  }
+
+  </style>
+
+
+  <script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        td1 = tr[i].getElementsByTagName("td")[2];
+        td2 = tr[i].getElementsByTagName("td")[3];
+        if (td || td1 || td2) {
+          txtValue = td.textContent || td.innerText;
+          txtValue1 = td1.textContent || td1.innerText;
+          txtValue2 = td2.textContent || td2.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue1.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+
+
+
+
+
+
+</head>
+<body>
+
+<h2>Search for Doctor</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Enter name, surname or specialization">
+
+<table id="myTable">
+  <tr class="header">
+    <th scope="col" style="width: 25%">Photo</th>
+    <th scope="col" style="width: 25%">Firstname</th>
+    <th scope="col" style="width: 25%">Surname</th>
+    <th scope="col" style="width: 25%">Specialization</th>
+  </tr>
+  <tr th:each="doctor : ${allDrs}">
+    <td img th:src="${doctor.photo}" />
+    <td th:text="${doctor.name}" />
+    <td th:text="${doctor.surname}" />
+    <td th:text="${doctor.surname}" />
+<!-- ДОЛЖНА БЫТЬ СПЕЦИАЛИЗАЦИЯ-->
+    <td>
+      <a
+              th:href="'/updateDoctor/' + ${doctor.id}"
+              class=" btn btn-outline-info"
+              role="button"
+      >Choose</a>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
