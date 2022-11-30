@@ -1,9 +1,9 @@
-package com.seproject.projectmilestone2.service;
+package com.seproject.projectmilestone3.service;
 
-import com.seproject.projectmilestone2.converter.DoctorConverter;
-import com.seproject.projectmilestone2.dao.DoctorDao;
-import com.seproject.projectmilestone2.dto.DoctorDto;
-import com.seproject.projectmilestone2.entity.Doctor;
+import com.seproject.projectmilestone3.converter.DoctorConverter;
+import com.seproject.projectmilestone3.dao.DoctorDao;
+import com.seproject.projectmilestone3.dto.DoctorDto;
+import com.seproject.projectmilestone3.entity.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

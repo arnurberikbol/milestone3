@@ -1,4 +1,4 @@
-package com.seproject.projectmilestone2;
+package com.seproject.projectmilestone3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

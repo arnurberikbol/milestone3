@@ -1,4 +1,4 @@
-package com.seproject.projectmilestone2.security;
+package com.seproject.projectmilestone3.security;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

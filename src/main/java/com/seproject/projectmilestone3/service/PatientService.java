@@ -1,6 +1,6 @@
-package com.seproject.projectmilestone2.service;
+package com.seproject.projectmilestone3.service;
 
-import com.seproject.projectmilestone2.dto.PatientDto;
+import com.seproject.projectmilestone3.dto.PatientDto;
 
 import java.util.List;
 

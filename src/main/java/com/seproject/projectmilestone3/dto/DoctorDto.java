@@ -1,80 +1,46 @@
-package com.seproject.projectmilestone2.entity;
+package com.seproject.projectmilestone3.dto;
 
-import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.web.multipart.MultipartFile;
 
-@Entity
-@Table(name = "Doctors")
-public class Doctor {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+public class DoctorDto {
     private int id;
 
-    @Column(name = "date_of_birth")
     private String date_of_birth;
 
-    @Column(name = "iin")
     private String iin;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "middlename")
     private String middlename;
 
-    @Column(name = "contact_number")
     private String contact_number;
 
-    @Column(name = "department_id")
     private int department_id;
 
-    @Column(name = "specialization_details_id")
     private int specialization_details_id;
 
-    @Column(name = "experience")
     private int experience;
 
-    @Lob
-    @Column(name = "photo")
-    private byte[] photo;
+    private MultipartFile photo;
 
-    @Column(name = "photo_name")
-    private String photo_name;
-
-    @Column(name = "photo_type")
-    private String photo_type;
-
-    @Column(name = "category")
     private String category;
 
-    @Column(name = "price")
     private int price;
 
-    @Column(name = "schedule_details")
     private String schedule_details;
 
-    @Column(name = "degree")
     private String degree;
 
-    @Column(name = "rating")
     private int rating;
 
-    @Column(name = "address")
     private String address;
 
     public int getId() {
         return id;
     }
 
-    public Doctor() {
-    }
     public void setId(int id) {
         this.id = id;
     }
@@ -87,6 +53,14 @@ public class Doctor {
         this.date_of_birth = date_of_birth;
     }
 
+    public String getIin() {
+        return iin;
+    }
+
+    public void setIin(String iin) {
+        this.iin = iin;
+    }
+
     public String getName() {
         return name;
     }
@@ -97,14 +71,6 @@ public class Doctor {
 
     public String getSurname() {
         return surname;
-    }
-
-    public String getIin() {
-        return iin;
-    }
-
-    public void setIin(String iin) {
-        this.iin = iin;
     }
 
     public void setSurname(String surname) {
@@ -151,11 +117,11 @@ public class Doctor {
         this.experience = experience;
     }
 
-    public byte[] getPhoto() {
+    public MultipartFile getPhoto() {
         return photo;
     }
 
-    public void setPhoto(byte[] photo) {
+    public void setPhoto(MultipartFile photo) {
         this.photo = photo;
     }
 
@@ -206,42 +172,4 @@ public class Doctor {
     public void setAddress(String address) {
         this.address = address;
     }
-
-    public String getPhoto_name() {
-        return photo_name;
-    }
-
-    public void setPhoto_name(String photo_name) {
-        this.photo_name = photo_name;
-    }
-
-    public String getPhoto_type() {
-        return photo_type;
-    }
-
-    public void setPhoto_type(String photo_type) {
-        this.photo_type = photo_type;
-    }
-
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "date_of_birth=" + date_of_birth +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", middlename='" + middlename + '\'' +
-                ", contact_number=" + contact_number +
-                ", department_id=" + department_id +
-                ", specialization_details_id=" + specialization_details_id +
-                ", experience=" + experience +
-                ", photo='" + photo + '\'' +
-                ", category='" + category + '\'' +
-                ", price=" + price +
-                ", schedule_details='" + schedule_details + '\'' +
-                ", degree='" + degree + '\'' +
-                ", rating=" + rating +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }
-

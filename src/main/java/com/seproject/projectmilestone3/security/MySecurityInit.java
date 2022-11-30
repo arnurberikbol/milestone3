@@ -1,4 +1,4 @@
-package com.seproject.projectmilestone2.security;
+package com.seproject.projectmilestone3.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

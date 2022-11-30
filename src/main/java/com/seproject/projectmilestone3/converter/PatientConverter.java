@@ -1,8 +1,8 @@
-package com.seproject.projectmilestone2.converter;
+package com.seproject.projectmilestone3.converter;
 
 
-import com.seproject.projectmilestone2.dto.PatientDto;
-import com.seproject.projectmilestone2.entity.Patient;
+import com.seproject.projectmilestone3.dto.PatientDto;
+import com.seproject.projectmilestone3.entity.Patient;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

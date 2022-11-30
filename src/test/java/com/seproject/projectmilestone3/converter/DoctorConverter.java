@@ -1,15 +1,13 @@
-package com.seproject.projectmilestone2.converter;
+package com.seproject.projectmilestone3.converter;
 
-import com.seproject.projectmilestone2.dto.DoctorDto;
-import com.seproject.projectmilestone2.entity.Doctor;
+import com.seproject.projectmilestone3.dto.DoctorDto;
+import com.seproject.projectmilestone3.entity.Doctor;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 

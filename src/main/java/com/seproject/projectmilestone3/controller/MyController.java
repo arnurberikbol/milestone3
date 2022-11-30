@@ -1,9 +1,9 @@
-package com.seproject.projectmilestone2.controller;
+package com.seproject.projectmilestone3.controller;
 
-import com.seproject.projectmilestone2.dto.DoctorDto;
-import com.seproject.projectmilestone2.dto.PatientDto;
-import com.seproject.projectmilestone2.service.DoctorService;
-import com.seproject.projectmilestone2.service.PatientService;
+import com.seproject.projectmilestone3.dto.DoctorDto;
+import com.seproject.projectmilestone3.dto.PatientDto;
+import com.seproject.projectmilestone3.service.DoctorService;
+import com.seproject.projectmilestone3.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,9 +1,7 @@
-package com.seproject.projectmilestone2.entity;
+package com.seproject.projectmilestone3.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "Patients")
