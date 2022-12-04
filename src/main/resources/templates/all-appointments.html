@@ -114,25 +114,18 @@
   <table class="element_names table">
     <thead class="thead-dark">
     <tr>
-      <th scope="col" style="width: 25%">IIN</th>
       <th scope="col" style="width: 25%">Firstname</th>
       <th scope="col" style="width: 25%">Surname</th>
-      <th scope="col" style="width: 25%">Operations</th>
+      <th scope="col" style="width: 25%">Date</th>
+      <th scope="col" style="width: 25%">Conact number</th>
     </tr>
-
     </thead>
 
-    <tr th:each="doctor : ${allDrs}">
-      <td th:text="${doctor.iin}" />
-      <td th:text="${doctor.name}" />
-      <td th:text="${doctor.surname}" />
-      <td>
-        <a
-                th:href="'/updateDoctor/' + ${doctor.id}"
-                class=" btn btn-outline-info"
-                role="button"
-        >Edit</a>
-      </td>
+    <tr th:each="appointment : ${allAps}">
+      <td th:text="${appointment.name}" />
+      <td th:text="${appointment.surname}" />
+      <td th:text="${appointment.date}" />
+      <td th:text="${appointment.contact_number}" />
     </tr>
   </table>
 </main>

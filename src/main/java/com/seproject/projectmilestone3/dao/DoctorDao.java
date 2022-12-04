@@ -13,4 +13,8 @@ public interface DoctorDao {
     public void persistDoctor(Doctor doctor);
 
     public Doctor getDoctor(int id);
+
+    public List<Doctor> searchDoctors(String name);
+
+    public List<Doctor> searchDoctorsBySpec(String spec);
 }

@@ -56,4 +56,16 @@ public class DoctorServiceImpl implements DoctorService {
         Doctor doctor = doctorDao.getDoctor(id);
         return doctorConverter.entityToDto(doctor);
     }
+
+    @Override
+    public List<DoctorDto> searchDoctor(String name) {
+        List<Doctor> allDoctors = doctorDao.searchDoctors(name);
+        return doctorConverter.entityToDto(allDoctors);
+    }
+
+    @Override
+    public List<DoctorDto> searchDoctorBySpec(String spec) {
+        List<Doctor> allDoctors = doctorDao.searchDoctorsBySpec(spec);
+        return doctorConverter.entityToDto(allDoctors);
+    }
 }

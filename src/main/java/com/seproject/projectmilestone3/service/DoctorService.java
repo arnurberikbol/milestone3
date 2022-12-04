@@ -12,4 +12,6 @@ public interface DoctorService {
     public boolean persistDoctor(DoctorDto doctorDto);
 
     public DoctorDto getDoctor(int id);
+    public List<DoctorDto> searchDoctor(String name);
+    public List<DoctorDto> searchDoctorBySpec(String spec);
 }

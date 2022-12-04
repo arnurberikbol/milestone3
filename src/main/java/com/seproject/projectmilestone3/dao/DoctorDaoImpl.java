@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-import java.util.List;
+import java.util.*;
 
 @Repository
 public class DoctorDaoImpl implements DoctorDao {
@@ -38,5 +38,46 @@ public class DoctorDaoImpl implements DoctorDao {
     public Doctor getDoctor(int id) {
         Doctor doctor = entityManager.find(Doctor.class,id);
         return doctor;
+    }
+
+    @Override
+    public List<Doctor> searchDoctors(String name) {
+        String[] splited = name.split(" ");
+        Set<Doctor> allDoctor = new LinkedHashSet<Doctor>();
+        if (splited.length == 2) {
+            Query query = entityManager.createQuery("from Doctor " +
+                    "where name like '%" + splited[0] + "%' and surname like '%" + splited[1] + "%'");
+            List<Doctor> doctors1 = query.getResultList();
+            allDoctor.addAll(doctors1);
+
+            query = entityManager.createQuery("from Doctor " +
+                    "where name like '%" + splited[1] + "%' and surname like '%" + splited[0] + "%'");
+            List<Doctor> doctors2 = query.getResultList();
+
+            allDoctor.addAll(doctors2);
+        }
+        if (splited.length == 1) {
+            Query query = entityManager.createQuery("from Doctor " +
+                    "where name like '%" + splited[0] + "%'");
+            List<Doctor> doctors1 = query.getResultList();
+            allDoctor.addAll(doctors1);
+
+            query = entityManager.createQuery("from Doctor " +
+                    "where surname like '%" + splited[0] + "%'");
+            List<Doctor> doctors2 = query.getResultList();
+
+            allDoctor.addAll(doctors2);
+        }
+
+        List<Doctor> finalDoctor = new ArrayList<>(allDoctor);
+        return finalDoctor;
+    }
+
+    @Override
+    public List<Doctor> searchDoctorsBySpec(String spec) {
+        Query query = entityManager.createQuery("from Doctor " +
+                "where category = " + spec);
+        List<Doctor> doctors = query.getResultList();
+       return doctors;
     }
 }
