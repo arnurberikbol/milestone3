@@ -114,16 +114,22 @@
   <table class="element_names table">
     <thead class="thead-dark">
     <tr>
-      <th scope="col" style="width: 25%">Firstname</th>
-      <th scope="col" style="width: 25%">Surname</th>
+      <th scope="col" style="width: 25%">Doctor category</th>
+      <th scope="col" style="width: 25%">Doctor Name</th>
+      <th scope="col" style="width: 25%">Doctor Surname</th>
+      <th scope="col" style="width: 25%">Patient name</th>
+      <th scope="col" style="width: 25%">Patient surname</th>
       <th scope="col" style="width: 25%">Date</th>
-      <th scope="col" style="width: 25%">Conact number</th>
+      <th scope="col" style="width: 25%">Contact number</th>
     </tr>
     </thead>
 
     <tr th:each="appointment : ${allAps}">
-      <td th:text="${appointment.name}" />
-      <td th:text="${appointment.surname}" />
+      <td th:text="${appointment.doctor_spec}" />
+      <td th:text="${appointment.doctor_name}" />
+      <td th:text="${appointment.doctor_surname}" />
+      <td th:text="${appointment.patient_name}" />
+      <td th:text="${appointment.patient_surname}" />
       <td th:text="${appointment.date}" />
       <td th:text="${appointment.contact_number}" />
     </tr>

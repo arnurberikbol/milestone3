@@ -67,7 +67,7 @@
     }
 
     .element_names {
-      width: 70rem;
+      width: 60rem;
       margin: 0 auto;
     }
 
@@ -180,16 +180,16 @@
     <thead class="thead-dark">
 
     <tr>
-      <th scope="col" style="width: 25%">IIN</th>
-      <th scope="col" style="width: 25%">Firstname</th>
-      <th scope="col" style="width: 25%">Surname</th>
-      <th scope="col" style="width: 25%">Operations</th>
+      <th scope="col" style="width: 25%; text-align: center">Specialization</th>
+      <th scope="col" style="width: 25%; text-align: center">Firstname</th>
+      <th scope="col" style="width: 25%; text-align: center">Surname</th>
+      <th scope="col" style="width: 25%; text-align: center">Operations</th>
     </tr>
 
     </thead>
 
     <tr th:each="doctor : ${doctors}">
-      <td th:text="${doctor.iin}" />
+      <td th:text="${doctor.category}" />
       <td th:text="${doctor.name}" />
       <td th:text="${doctor.surname}" />
       <td>
