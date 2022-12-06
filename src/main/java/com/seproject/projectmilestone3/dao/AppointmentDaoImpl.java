@@ -26,14 +26,12 @@ public class AppointmentDaoImpl implements AppointmentDao {
     @Override
     @Transactional
     public void saveAppointment(Appointment appointment) {
-        System.out.println(appointment);
         entityManager.merge(appointment);
     }
 
     @Override
     @Transactional
     public void persistAppointment(Appointment appointment) {
-        System.out.println(appointment);
         entityManager.persist(appointment);
     }
 

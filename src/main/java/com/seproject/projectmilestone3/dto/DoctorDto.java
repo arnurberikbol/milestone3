@@ -2,6 +2,8 @@ package com.seproject.projectmilestone3.dto;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.persistence.Column;
+
 public class DoctorDto {
     private int id;
 
@@ -23,7 +25,11 @@ public class DoctorDto {
 
     private int experience;
 
-    private MultipartFile photo;
+    private byte[] photo;
+
+    private String photo_name;
+
+    private String photo_type;
 
     private String category;
 
@@ -117,12 +123,28 @@ public class DoctorDto {
         this.experience = experience;
     }
 
-    public MultipartFile getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(MultipartFile photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
+    }
+
+    public String getPhoto_name() {
+        return photo_name;
+    }
+
+    public void setPhoto_name(String photo_name) {
+        this.photo_name = photo_name;
+    }
+
+    public String getPhoto_type() {
+        return photo_type;
+    }
+
+    public void setPhoto_type(String photo_type) {
+        this.photo_type = photo_type;
     }
 
     public String getCategory() {

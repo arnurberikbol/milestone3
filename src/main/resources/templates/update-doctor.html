@@ -263,6 +263,18 @@
             />
         </div>
 
+        <div class="form-group">
+            <label>Photo: </label>
+            <input
+                    type="file"
+                    class="form-control"
+                    accept="image/png, image/jpeg"
+                    th:field="*{photo}"
+                    id="photo"
+                    placeholder="Upload Photo"
+            />
+        </div>
+
         <div class="last">
             <td th:text="${exception}" class="hidden_one" style="color: red"></td>
             <input type="hidden" class="form-control" th:field="*{id}"  id="id"  placeholder="" />

@@ -95,6 +95,13 @@
       text-align: center;
     }
 
+    .content .rs {
+      width: auto;
+      height: auto;
+      max-height: 90%;
+      max-width: 100%;
+    }
+
   </style>
   <title>Milestone project</title>
 </head>
@@ -114,6 +121,7 @@
   <table class="element_names table">
     <thead class="thead-dark">
     <tr>
+      <th scope="col" style="width: 25%">Photo</th>
       <th scope="col" style="width: 25%">IIN</th>
       <th scope="col" style="width: 25%">Firstname</th>
       <th scope="col" style="width: 25%">Surname</th>
@@ -123,6 +131,10 @@
     </thead>
 
     <tr th:each="doctor : ${allDrs}">
+      <td>
+        <img th:src="@{${'/doctor/image/' + doctor.id}}" width="120"/>
+      </td>
+
       <td th:text="${doctor.iin}" />
       <td th:text="${doctor.name}" />
       <td th:text="${doctor.surname}" />

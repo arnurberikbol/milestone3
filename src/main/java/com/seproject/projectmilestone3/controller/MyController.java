@@ -1,11 +1,14 @@
 package com.seproject.projectmilestone3.controller;
 
+import com.seproject.projectmilestone3.dao.DoctorDao;
 import com.seproject.projectmilestone3.dto.AppointmentDto;
 import com.seproject.projectmilestone3.dto.DoctorDto;
 import com.seproject.projectmilestone3.dto.PatientDto;
+import com.seproject.projectmilestone3.entity.Doctor;
 import com.seproject.projectmilestone3.service.AppointmentService;
 import com.seproject.projectmilestone3.service.DoctorService;
 import com.seproject.projectmilestone3.service.PatientService;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -16,6 +19,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 @Controller
@@ -59,7 +66,6 @@ public class MyController {
     @RequestMapping("/saveAppointment")
     public String saveAppointment(@ModelAttribute("appointment") AppointmentDto appointmentDto, Model model) {
 
-        System.out.println(appointmentDto);
         appointmentService.saveAppointment(appointmentDto);
 
         return "redirect:/";
@@ -208,5 +214,19 @@ public class MyController {
         model.addAttribute("allDrs", allDoctorsDto2);
 
         return "patient-home";
+    }
+
+    @Autowired
+    private DoctorDao DoctorDao;
+
+    @RequestMapping("/doctor/image/{id}")
+    public void showProductImage(@PathVariable int id,
+                               HttpServletResponse response) throws IOException {
+        response.setContentType("image/jpeg"); // Or whatever format you wanna use
+
+        Doctor doctor = DoctorDao.getDoctor(id);
+
+        InputStream is = new ByteArrayInputStream(doctor.getPhoto());
+        IOUtils.copy(is, response.getOutputStream());
     }
 }
